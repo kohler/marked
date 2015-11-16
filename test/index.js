@@ -216,14 +216,15 @@ function bench(name, func) {
 function runBench(options) {
   var options = options || {};
 
-  // Non-GFM, Non-pedantic
+  // Non-GFM, Non-pedantic, No math
   marked.setOptions({
     gfm: false,
     tables: false,
     breaks: false,
     pedantic: false,
     sanitize: false,
-    smartLists: false
+    smartLists: false,
+    math: false
   });
   if (options.marked) {
     marked.setOptions(options.marked);
@@ -237,12 +238,28 @@ function runBench(options) {
     breaks: false,
     pedantic: false,
     sanitize: false,
-    smartLists: false
+    smartLists: false,
+    math: false
   });
   if (options.marked) {
     marked.setOptions(options.marked);
   }
   bench('marked (gfm)', marked);
+
+  // GFM + Math
+  marked.setOptions({
+    gfm: true,
+    tables: false,
+    breaks: false,
+    pedantic: false,
+    sanitize: false,
+    smartLists: false,
+    math: true
+  });
+  if (options.marked) {
+    marked.setOptions(options.marked);
+  }
+  bench('marked (mathgfm)', marked);
 
   // Pedantic
   marked.setOptions({
