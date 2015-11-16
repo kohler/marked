@@ -143,28 +143,6 @@ Type: `function`
 
 The callback function to call when using an async highlighter.
 
-### Math
-
-Type: { render: Function }
-
-An object with a `render` method that parses math expressions inside `$$ ... $$` blocks, or inline inside `$ ... $` expressions, and returns a rendered version. Here's an example with the [KaTeX](http://khan.github.io/KaTeX/) typesetter.
-
-```js
-marked.setOptions({
-  gfm: true,
-  math: {
-    render: function (tex) {
-      return katex.renderToString(tex);
-    }
-  }
-});
-
-marked(markdownString, function (err, content) {
-  if (err) { throw err; }
-  console.log(content);
-});
-```
-
 ### renderer
 
 Type: `object`
@@ -236,6 +214,7 @@ This code will output the following HTML:
 - del(*string* text)
 - link(*string* href, *string* title, *string* text)
 - image(*string* href, *string* title, *string* text)
+- math(*string* content, *bool* isblock)
 
 ### gfm
 
@@ -259,6 +238,34 @@ Default: `false`
 
 Enable GFM [line breaks][breaks].
 This option requires the `gfm` option to be true.
+
+### math
+
+Type: `boolean`
+Default: `false`
+
+Enable math rendering for text within `$...$` and `$$...$$`.
+
+### mathRenderer
+
+Type: `function`
+Default: renders verbatim text in a `<code>` block
+
+Function used to render math expressions. Here's an example with the
+[KaTeX](http://khan.github.io/KaTeX/) typesetter.
+
+```js
+marked.setOptions({
+  gfm: true, math: true,
+  mathRenderer: function (math, isblock) {
+    try {
+      return katex.renderToString(math, isblock);
+    } catch (err) {
+      return '<code class="matherror">' + marked.escape(math) + '</code>';
+    }
+  }
+});
+```
 
 ### pedantic
 
