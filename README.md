@@ -187,10 +187,10 @@ This code will output the following HTML:
 - code(*string* code, *string* language)
 - blockquote(*string* quote)
 - html(*string* html)
-- heading(*string* text, *number*  level)
+- heading(*string* text, *number* level)
 - hr()
 - list(*string* body, *boolean* ordered)
-- listitem(*string*  text)
+- listitem(*string* text, *string* bullet)
 - paragraph(*string* text)
 - table(*string* header, *string* body)
 - tablerow(*string* content)
@@ -289,6 +289,13 @@ Default: `true`
 
 Use smarter list behavior than the original markdown. May eventually be
 default with the old behavior moved into `pedantic`.
+
+### listValues
+
+Type: `boolean`
+Default: `false`
+
+Give ordered list items `value` attributes with the user’s item numbers.
 
 ### smartypants
 
