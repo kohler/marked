@@ -216,6 +216,13 @@ This code will output the following HTML:
 - image(*string* href, *string* title, *string* text)
 - math(*string* content, *bool* isblock)
 
+### inline
+
+Type: `boolean`
+Default: `false`
+
+Only parse inline-level constructs.
+
 ### gfm
 
 Type: `boolean`
