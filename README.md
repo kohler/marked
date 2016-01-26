@@ -282,14 +282,6 @@ Default: `false`
 Conform to obscure parts of `markdown.pl` as much as possible. Don't fix any of
 the original markdown bugs or poor behavior.
 
-### strictEmph
-
-Type: `boolean`
-Default: `false`
-
-Restrict the use of `*emphasis*` and `**strong emphasis**`. At most one
-sentence can be emphasized at a time.
-
 ### sanitize
 
 Type: `boolean`
