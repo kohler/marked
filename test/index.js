@@ -224,7 +224,8 @@ function runBench(options) {
     pedantic: false,
     sanitize: false,
     smartLists: false,
-    math: false
+    math: false,
+    latexemph: false
   });
   if (options.marked) {
     marked.setOptions(options.marked);
@@ -239,7 +240,8 @@ function runBench(options) {
     pedantic: false,
     sanitize: false,
     smartLists: false,
-    math: false
+    math: false,
+    latexemph: false
   });
   if (options.marked) {
     marked.setOptions(options.marked);
@@ -254,7 +256,8 @@ function runBench(options) {
     pedantic: false,
     sanitize: false,
     smartLists: false,
-    math: true
+    math: true,
+    latexemph: false
   });
   if (options.marked) {
     marked.setOptions(options.marked);
